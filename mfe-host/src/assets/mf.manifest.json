@@ -1,0 +1,26 @@
+[
+  {
+    "path": "dashboard",
+    "remoteEntry": "http://localhost:4000/remoteEntry.js",
+    "exposedModule": "./public-api",
+    "ngModuleName": "DashboardModule"
+  },
+  {
+    "path": "institucional",
+    "remoteEntry": "http://localhost:4000/remoteEntry.js",
+    "exposedModule": "./public-api",
+    "ngModuleName": "InstitutionalModule"
+  },
+  {
+    "path": "usuarios",
+    "remoteEntry": "http://localhost:4000/remoteEntry.js",
+    "exposedModule": "./public-api",
+    "ngModuleName": "UsersModule"
+  },
+  {
+    "path": "produtos",
+    "remoteEntry": "http://localhost:4001/remoteEntry.js",
+    "exposedModule": "./public-api",
+    "ngModuleName": "ProductsModule"
+  }
+]

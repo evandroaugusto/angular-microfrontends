@@ -1,0 +1,30 @@
+header {
+  padding: 20px;
+  position: relative;
+}
+.header--default {
+  background-color: #5e389f;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.main-navigation {
+  display: flex;
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+}
+
+.link {
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  margin: 0 12px;
+  text-transform: uppercase;
+
+  &:hover {
+    color:#fff;
+  }
+}
+
