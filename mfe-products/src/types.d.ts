@@ -1,1 +1,1 @@
-declare module "mfeCore/*"
+declare module 'mfeCore/*';

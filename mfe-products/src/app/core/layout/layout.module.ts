@@ -10,9 +10,9 @@ import { FooterComponent } from './footer/footer.component';
     RouterModule.forChild([
       {
         path: '',
-        component: FooterComponent
-      }
-    ])
-  ]
+        component: FooterComponent,
+      },
+    ]),
+  ],
 })
-export class LayoutModule { }
+export class LayoutModule {}

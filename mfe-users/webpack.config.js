@@ -32,15 +32,8 @@ module.exports = {
         filename: "remoteEntry.js",
         exposes: {
             './public-api': './/public-api.ts'
-            // './feature/users': './/src/app/modules/users/users.module.ts',
-            // './feature/users/config': './/src/app/modules/users/config.ts',
         },        
         
-        // For hosts (please adjust)
-        // remotes: {
-        //     "mfeHost": "http://localhost:4100/remoteEntry.js",
-        // },
-
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 

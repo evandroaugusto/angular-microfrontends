@@ -13,7 +13,10 @@ const mfeRoutes = (): Routes => {
         type: 'module',
         exposedModule: mfe.exposedModule,
         remoteEntry: mfe.remoteEntry
-      }).then(m => m[mfe.ngModuleName])
+      }).then(m => {
+     
+        return m[mfe.ngModuleName] || m.BootstrapModule();
+      })
     }
   });
 

@@ -29,16 +29,9 @@ module.exports = {
     new ModuleFederationPlugin({
         library: { type: "module" },
 
-        // For remotes (please adjust)
-        // name: "mfeHost",
-        // filename: "remoteEntry.js",
-        // exposes: { },        
-        
         // For hosts (please adjust)
         remotes: {
-            "mfeCore": "http://localhost:4000/remoteEntry.js",
-            "mfeProducts": "http://localhost:4001/remoteEntry.js",
-            "mfeUsers": "http://localhost:4002/remoteEntry.js",
+            "mfeCore": "http://localhost:4000/remoteEntry.js"           
         },
 
         shared: share({

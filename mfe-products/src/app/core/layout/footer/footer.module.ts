@@ -4,17 +4,15 @@ import { FooterComponent } from './footer.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    FooterComponent
-  ],
+  declarations: [FooterComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: FooterComponent
-      }
-    ])
-  ]
+        component: FooterComponent,
+      },
+    ]),
+  ],
 })
-export class FooterModule { }
+export class FooterModule {}

@@ -4,17 +4,15 @@ import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    HeaderComponent
-  ],
+  declarations: [HeaderComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: HeaderComponent
-      }
-    ])
-  ]
+        component: HeaderComponent,
+      },
+    ]),
+  ],
 })
-export class HeaderModule { }
+export class HeaderModule {}

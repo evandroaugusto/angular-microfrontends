@@ -1,0 +1,117 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "./src/assets/*.js"
+      ],
+      "parserOptions": {
+        "project": [
+          "**/tsconfig.json"
+        ],
+        "createDefaultProgram": true,
+        "sourceType": "module"
+      },
+
+      "plugins": ["boundaries"],
+      "parser": "@typescript-eslint/parser",
+    
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
+        "plugin:boundaries/recommended"
+      ],
+      "settings": {
+        "import/resolver": {
+          "typescript": {}
+        },
+
+        "boundaries/elements": [
+          {
+            "type": "core",
+            "pattern": "src/app/core/*"
+          },
+          {
+            "type": "shared",
+            "pattern": "src/app/shared/*",
+            "capture": ["category"]
+          },
+          {
+            "type": "modules",
+            "pattern": "src/app/modules/*",
+            "capture":["module"]
+          }
+        ]
+      },
+      "rules": {
+        "boundaries/element-types": [
+          2,
+          {
+            "default": "allow",
+            "message": "Arquivos do tipo '${file.type}' não podem importar arquivos do tipo '${dependency.type}'",
+            "rules": [
+              {
+                "from": ["core"],
+                "disallow": [["shared", {"category":"!models"}], "modules"],
+                "message": "Arquivos do tipo '${file.type}' só podem importar 'models' de '${dependency.type}'"
+              },
+              {
+                "from": ["shared"],
+                "disallow": ["modules"]
+              },
+              {
+                "from": ["modules"],
+                "disallow": [
+                  ["modules", {"module": "!${from.module}"}]
+                ],
+                "message": "O módulo '${file.module}' não pode importar arquivos de '${dependency.module}' ou outros módulos"
+              }
+            ]
+          }
+        ],
+
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": ["app", "sp"],
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": ["element", "attribute"],
+            "prefix": ["app", "sp"],
+            "style": "kebab-case"
+          }
+        ],
+        "prettier/prettier" : ["error", { "endOfLine": "auto" }]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    },
+    {
+      "files": ["*.html"],
+      "excludedFiles": ["*inline-template-*.component.html"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        "prettier/prettier": ["error", { "parser": "html", "endOfLine": "auto" }]
+      }
+    }
+  ]
+}

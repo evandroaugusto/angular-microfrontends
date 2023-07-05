@@ -1,6 +1,23 @@
 <header class="header--default">
   <h2 class="title">HEADER</h2>
 
+  <ng-container *ngIf="mfeActive === MFE.PRODUCTS; else mfeHost">
+    <nav class="main-navigation">
+      <div class="link" routerLink="/dashboard">
+        Dashboard
+      </div>
+
+      <div class="link" routerLink="/produtos">
+        Produtos
+      </div>
+    </nav>
+  </ng-container>
+</header>
+
+<!--
+  # MFE HOST - NAVIGATION
+-->
+<ng-template #mfeHost>
   <nav class="main-navigation">
     <div class="link" routerLink="/dashboard">
       Dashboard
@@ -18,4 +35,4 @@
       Institucional
     </div>
   </nav>
-</header>
+</ng-template>

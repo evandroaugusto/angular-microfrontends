@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+
+enum MFE {
+  HOST = '4100',
+  PRODUCTS = '4001'
+}
 
 @Component({
   selector: 'app-header',
@@ -7,10 +13,13 @@ import { Component, OnInit } from '@angular/core';
   providers: []
 })
 export class HeaderComponent implements OnInit {
+  MFE = MFE;
+  mfeActive = this.document?.location?.port || MFE.HOST;
 
-  constructor() { }
+  constructor(
+    @Inject(DOCUMENT) private document: any
+  ) { }
 
   ngOnInit(): void {
   }
-
 }
